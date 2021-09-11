@@ -46,6 +46,15 @@ class DetailUserActivity : AppCompatActivity() {
             viewPager.adapter = sectionPagerAdapter
             tabLayout.setupWithViewPager(viewPager)
         }
+
+        supportActionBar?.title = "Detail User"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 }
 
