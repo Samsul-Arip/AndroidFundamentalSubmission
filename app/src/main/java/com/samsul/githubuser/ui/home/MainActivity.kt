@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 userAdapter.setListUser(list)
                 showLoading(false)
             } else {
-                showLoading(true)
+                showLoading(false)
             }
         })
     }

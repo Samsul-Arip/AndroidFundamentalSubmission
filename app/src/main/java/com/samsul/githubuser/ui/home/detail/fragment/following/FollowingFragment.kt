@@ -1,4 +1,4 @@
-package com.samsul.githubuser.ui.home.detail.fragment
+package com.samsul.githubuser.ui.home.detail.fragment.following
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
