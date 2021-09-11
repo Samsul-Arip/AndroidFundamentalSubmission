@@ -34,7 +34,7 @@ interface ApiEndPoint {
     //@Headers("Authorization: token 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")
     fun getFollowingUsers(
         @Path("username") username: String
-    )
+    ): Call<ArrayList<DataFollow>>
 
 
 }
