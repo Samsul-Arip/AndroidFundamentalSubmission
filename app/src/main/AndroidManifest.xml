@@ -11,6 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUser">
+        <receiver
+            android:name=".receiver.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
+        <activity
+            android:name=".ui.home.setting.SettingsActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.home.favorite.FavoriteActivity"
             android:exported="true" />

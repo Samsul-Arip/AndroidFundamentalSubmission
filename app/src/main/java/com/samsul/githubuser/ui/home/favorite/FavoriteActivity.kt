@@ -39,7 +39,8 @@ class FavoriteActivity : AppCompatActivity() {
         favoriteAdapter.setOnItemClickCallback(object : FavoriteAdapter.OnItemClickCallBack{
             override fun onItemClick(data: UserEntity) {
                 val options = arrayOf<CharSequence>(
-                    "Hapus Data"
+                    "Hapus Data",
+                    "Cencel"
                 )
                 val builder : AlertDialog.Builder = AlertDialog.Builder(this@FavoriteActivity)
                 builder.setTitle("What do you want?")
@@ -48,6 +49,8 @@ class FavoriteActivity : AppCompatActivity() {
                         viewModel.deleteFavorite(this@FavoriteActivity, data){
                             Toast.makeText(this@FavoriteActivity, "Dihapus dari favorite", Toast.LENGTH_SHORT).show()
                         }
+                    } else if(position == 1) {
+                        finish()
                     }
                 })
                 builder.show()

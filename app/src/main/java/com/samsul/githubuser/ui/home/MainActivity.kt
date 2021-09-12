@@ -14,6 +14,7 @@ import com.samsul.githubuser.data.model.DataSearchUser
 import com.samsul.githubuser.databinding.ActivityMainBinding
 import com.samsul.githubuser.ui.home.detail.DetailUserActivity
 import com.samsul.githubuser.ui.home.favorite.FavoriteActivity
+import com.samsul.githubuser.ui.home.setting.SettingsActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,6 +65,14 @@ class MainActivity : AppCompatActivity() {
                 showLoading(false)
             }
         })
+
+        supportActionBar?.title = "Alarm Reminder"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -80,6 +89,8 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.menu_settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
                 true
             } else -> false
         }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    tools:context=".ui.home.setting.SettingsActivity">
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Set Reminder"
+        android:textColor="@color/white"
+        android:textOff="ON"
+        android:textOn="OFF"
+        android:drawableStart="@drawable/ic_settings"
+        android:drawablePadding="15dp"
+        />
+
+</RelativeLayout>
