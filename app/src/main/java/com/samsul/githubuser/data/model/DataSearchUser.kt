@@ -1,4 +1,4 @@
-package com.samsul.githubuser.data
+package com.samsul.githubuser.data.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -9,6 +9,7 @@ class DataSearchUser {
     )
     data class dataUser(
         @SerializedName("login") val name: String?,
+        @SerializedName("id") val id: String?,
         @SerializedName("avatar_url") val image: String?
     )
 }

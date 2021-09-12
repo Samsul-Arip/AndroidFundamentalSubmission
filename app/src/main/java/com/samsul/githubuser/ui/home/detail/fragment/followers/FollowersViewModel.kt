@@ -4,8 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.samsul.githubuser.data.DataFollow
-import com.samsul.githubuser.data.DataSearchUser
+import com.samsul.githubuser.data.model.DataFollow
 import com.samsul.githubuser.networking.ApiService
 import retrofit2.Call
 import retrofit2.Callback

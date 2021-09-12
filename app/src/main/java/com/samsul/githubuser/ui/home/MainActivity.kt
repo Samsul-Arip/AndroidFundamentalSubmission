@@ -3,14 +3,17 @@ package com.samsul.githubuser.ui.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.KeyEvent
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.samsul.githubuser.data.DataSearchUser
+import com.samsul.githubuser.R
+import com.samsul.githubuser.data.model.DataSearchUser
 import com.samsul.githubuser.databinding.ActivityMainBinding
 import com.samsul.githubuser.ui.home.detail.DetailUserActivity
+import com.samsul.githubuser.ui.home.favorite.FavoriteActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,10 +32,13 @@ class MainActivity : AppCompatActivity() {
             override fun onItemClick(data: DataSearchUser.dataUser) {
                 val intent = Intent(this@MainActivity, DetailUserActivity::class.java)
                 intent.putExtra(DetailUserActivity.EXTRA_USERNAME, data.name)
+                intent.putExtra(DetailUserActivity.EXTRA_ID, data.id)
+                intent.putExtra(DetailUserActivity.EXTRA_IMAGE, data.image)
                 startActivity(intent)
             }
 
         })
+
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MainViewModel::class.java)
 
         binding.apply {
@@ -58,6 +64,25 @@ class MainActivity : AppCompatActivity() {
                 showLoading(false)
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_item, menu)
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.menu_favorite -> {
+                val intent = Intent(this, FavoriteActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.menu_settings -> {
+                true
+            } else -> false
+        }
     }
 
     private fun searchUser() {

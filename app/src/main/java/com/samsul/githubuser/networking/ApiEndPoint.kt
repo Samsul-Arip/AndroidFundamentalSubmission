@@ -1,11 +1,10 @@
 package com.samsul.githubuser.networking
 
-import com.samsul.githubuser.data.DataDetailUser
-import com.samsul.githubuser.data.DataFollow
-import com.samsul.githubuser.data.DataSearchUser
+import com.samsul.githubuser.data.model.DataDetailUser
+import com.samsul.githubuser.data.model.DataFollow
+import com.samsul.githubuser.data.model.DataSearchUser
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Headers
 import retrofit2.http.Path
 import retrofit2.http.Query
 

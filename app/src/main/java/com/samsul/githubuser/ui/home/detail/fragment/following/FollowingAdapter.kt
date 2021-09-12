@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.samsul.githubuser.data.DataFollow
+import com.samsul.githubuser.data.model.DataFollow
 import com.samsul.githubuser.databinding.ItemUserBinding
 import com.squareup.picasso.Picasso
 
