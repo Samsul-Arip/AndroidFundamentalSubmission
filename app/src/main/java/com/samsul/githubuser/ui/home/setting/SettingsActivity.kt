@@ -2,7 +2,6 @@ package com.samsul.githubuser.ui.home.setting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.samsul.githubuser.R
 import com.samsul.githubuser.data.model.Reminder
 import com.samsul.githubuser.databinding.ActivitySettingsBinding
 import com.samsul.githubuser.preference.ReminderPreference
@@ -20,7 +19,7 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val reminderPreference = ReminderPreference(this)
-        if(reminderPreference.getReminder().isReminder) {
+        if(reminderPreference.getReminder().isReminded) {
             binding.switch1.isChecked = true
         } else {
             binding.switch1.isChecked = false
@@ -31,7 +30,7 @@ class SettingsActivity : AppCompatActivity() {
         binding.switch1.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked) {
                 saveReminder(true)
-                alarmReceiver.setRepeatingAlarm(this, "RepeatingAlarm", "07:45", "github_reminder")
+                alarmReceiver.setRepeatingAlarm(this, "RepeatingAlarm", "09:00", "Github_Reminder")
 
             } else {
                 saveReminder(false)
@@ -47,7 +46,7 @@ class SettingsActivity : AppCompatActivity() {
         val reminderPreference =ReminderPreference(this)
         reminder = Reminder()
 
-        reminder.isReminder = state
+        reminder.isReminded = state
         reminderPreference.setReminder(reminder)
 
     }

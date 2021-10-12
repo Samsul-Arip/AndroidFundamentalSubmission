@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity() {
         })
 
         supportActionBar?.title = "Alarm Reminder"
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onSupportNavigateUp(): Boolean {

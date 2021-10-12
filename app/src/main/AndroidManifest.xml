@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.samsul.githubuser">
+    package="com.samsul.githubuser" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <permission
+        android:name="com.samsul.githubuser.READ_DATABASE"
+        android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"
@@ -10,12 +14,31 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GithubUser">
+        android:theme="@style/Theme.GithubUser" >
+        <activity
+            android:name=".ui.home.favorite.detail.ActivityDetailFavorite"
+            android:exported="true" />
+
+        <provider
+            android:name=".provider.UserContentProvider"
+            android:authorities="com.samsul.githubuser"
+            android:exported="true"
+            android:readPermission="com.samsul.githubuser.READ_DATABASE" />
+
         <receiver
             android:name=".receiver.AlarmReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
 
+        <activity
+            android:name=".SplachScreen"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.home.setting.SettingsActivity"
             android:exported="true" />
@@ -27,13 +50,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.home.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

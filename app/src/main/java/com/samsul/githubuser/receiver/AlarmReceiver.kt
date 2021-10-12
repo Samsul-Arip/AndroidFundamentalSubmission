@@ -7,7 +7,7 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.os.Build
+import android.os.Build.VERSION_CODES
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
@@ -20,22 +20,23 @@ class AlarmReceiver : BroadcastReceiver() {
 
     companion object {
         private const val NOTIFICATION_ID = 1
-        private const val CHANNEL_ID = "channel"
-        private const val CHANNEL_NAME = "github_reminder"
+        private const val CHANNEL_ID = "channel_01"
+        private const val CHANNEL_NAME = "Github_Reminder"
         private const val TIME_FORMAT = "HH:mm"
         const val EXTRA_MESSAGE = "message"
         const val EXTRA_TYPE = "extra_type"
         private const val ID_REPEATING = 101
     }
 
+    @RequiresApi(VERSION_CODES.O)
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
-
+        sendNotification(context)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+    @RequiresApi(VERSION_CODES.O)
     private fun sendNotification(context: Context) {
-        val intent = context?.packageManager.getLaunchIntentForPackage("com.samsul.githubuser")
+        val intent = context.packageManager.getLaunchIntentForPackage("com.samsul.githubuser")
         val pendingIntent = PendingIntent.getActivity(context,0,intent,0)
         val notificationManager = context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
@@ -47,7 +48,6 @@ class AlarmReceiver : BroadcastReceiver() {
             .setAutoCancel(true)
 
         val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT)
-
         builder.setChannelId(CHANNEL_ID)
         notificationManager.createNotificationChannel(channel)
 

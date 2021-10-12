@@ -5,9 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.samsul.githubuser.data.database.UserEntity
-import com.samsul.githubuser.data.model.DataSearchUser
 import com.samsul.githubuser.databinding.ItemUserBinding
-import com.samsul.githubuser.ui.home.MainAdapter
 import com.squareup.picasso.Picasso
 
 class FavoriteAdapter(val context: Context, val listFavorite: ArrayList<UserEntity>) :

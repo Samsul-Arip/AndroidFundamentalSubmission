@@ -16,16 +16,13 @@ class DetailUserActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_USERNAME = "username"
+        const val EXTRA_USERNAME_DETAIL = "username_detail"
         const val EXTRA_ID = "id"
         const val EXTRA_IMAGE = "image"
     }
 
     private lateinit var binding: ActivityDetailUserBinding
     private lateinit var viewModel: DetailUserViewModel
-
-    private var data: UserEntity? = null
-    var i : Int = 0
-
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +53,6 @@ class DetailUserActivity : AppCompatActivity() {
             }
         })
 
-
         if (image != null) {
             saveFavoriteUser(_id, username, image)
         }
@@ -73,9 +69,9 @@ class DetailUserActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    private fun saveFavoriteUser(id: Int, name: String, image: String){
+    private fun saveFavoriteUser(id: Int, name: String, image: String) {
         binding.fabFavorite.setOnClickListener {
-            viewModel.addFavoriteUser(this, id, name, image){
+            viewModel.addFavoriteUser(this, id, name, image) {
                 successSaveFavorite()
             }
         }

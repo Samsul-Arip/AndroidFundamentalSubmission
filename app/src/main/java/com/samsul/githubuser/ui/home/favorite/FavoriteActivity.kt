@@ -1,6 +1,7 @@
 package com.samsul.githubuser.ui.home.favorite
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.samsul.githubuser.R
 import com.samsul.githubuser.data.database.UserEntity
 import com.samsul.githubuser.databinding.ActivityFavoriteBinding
+import com.samsul.githubuser.ui.home.favorite.detail.ActivityDetailFavorite
 
 class FavoriteActivity : AppCompatActivity() {
 
@@ -40,7 +42,7 @@ class FavoriteActivity : AppCompatActivity() {
             override fun onItemClick(data: UserEntity) {
                 val options = arrayOf<CharSequence>(
                     "Hapus Data",
-                    "Cencel"
+                    "Lihat Detail"
                 )
                 val builder : AlertDialog.Builder = AlertDialog.Builder(this@FavoriteActivity)
                 builder.setTitle("What do you want?")
@@ -50,7 +52,9 @@ class FavoriteActivity : AppCompatActivity() {
                             Toast.makeText(this@FavoriteActivity, "Dihapus dari favorite", Toast.LENGTH_SHORT).show()
                         }
                     } else if(position == 1) {
-                        finish()
+                        val intent = Intent(this@FavoriteActivity, ActivityDetailFavorite::class.java)
+                        intent.putExtra(ActivityDetailFavorite.EXTRA_USERNAME_DETAIL, data.name)
+                        startActivity(intent)
                     }
                 })
                 builder.show()

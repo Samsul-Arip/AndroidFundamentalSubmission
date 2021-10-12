@@ -22,12 +22,6 @@ class LocalDataSource(context: Context) {
         }
     }
 
-    fun updateFavoriteUser(data: UserEntity) {
-        CoroutineScope(Dispatchers.IO).launch {
-            userDao.updateFavoriteUser(data)
-        }
-    }
-
     fun deleteFavoriteUser(data: UserEntity) {
         CoroutineScope(Dispatchers.IO).launch {
             userDao.deleteFavoriteUser(data)

@@ -14,13 +14,13 @@ class ReminderPreference(context: Context) {
 
     fun setReminder(reminder: Reminder) {
         val editor = preference.edit()
-        editor.putBoolean(REMINDER, reminder.isReminder)
+        editor.putBoolean(REMINDER, reminder.isReminded)
         editor.apply()
     }
 
     fun getReminder(): Reminder {
         val model = Reminder()
-        model.isReminder = preference.getBoolean(REMINDER, false)
+        model.isReminded = preference.getBoolean(REMINDER, false)
         return model
     }
 }
